@@ -7,7 +7,8 @@ app.use(cors({ origin: true }));
 
 app.use(express.json());
 app.use(express.raw({ type: 'application/vnd.custom-type' }));
-app.use(express.text({ type: 'text/html' }));
+app.use(express.text({ type: 'text/plain' }));
+
 
 
 const mockDatabase = [];
@@ -26,6 +27,7 @@ api.get('/hello', (req, res) => {
 api.post('/nangluong', (req, res) => {
 
   const data = req.body;
+  console.log(data)
 
   mockDatabase.push(data);
 
