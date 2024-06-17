@@ -11,7 +11,7 @@ app.use(express.text({ type: 'text/plain' }));
 
 
 
-const mockDatabase = [];
+let temp = '0';
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
@@ -28,14 +28,13 @@ api.post('/nangluong', (req, res) => {
 
   const data = req.body;
   console.log(data)
-
-  mockDatabase.push(data);
+  temp = data;
 
   res.status(200).send({ message: 'ok' });
 })
 
 api.get('/nangluong', (req, res) => {
-  res.status(200).send({ data: mockDatabase });
+  res.status(200).send(temp);
 })
 
 // Version the api
