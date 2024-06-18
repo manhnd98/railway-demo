@@ -11,7 +11,7 @@ app.use(express.text({ type: 'text/plain' }));
 
 
 
-const temp = {}
+const data = {}
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
@@ -28,8 +28,8 @@ api.post('/nangluong', (req, res) => {
 
   const data = req.body;
 
-  const [name, value] = data.split(':');
-  temp[name] = value;
+  const [name, temp, voltage, ampe, power] = data.split(':');
+  data[name] = {temp, voltage, ampe, power};
   res.status(200).send({ message: 'ok' });
 })
 
