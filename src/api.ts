@@ -28,11 +28,8 @@ api.post('/nangluong', (req, res) => {
 
   const data = req.body;
 
-  const [name1, value1, name2, value2, name3, value3, name4, value4] = data.split(':');
-  temp[name1] = value1;
-  temp[name2] = value2;
-  temp[name3] = value3;
-  temp[name4] = value4;
+  const [name, value] = data.split(':');
+  temp[name] = value;
   res.status(200).send({ message: 'ok' });
 })
 
